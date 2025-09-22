@@ -4,11 +4,9 @@ from heapq import heappush, heappop
 def dijkstra(graph, source): 
     dist = [sys.maxsize] * len(graph)
     dist[source] = 0
-    heap = []
-    heappush(heap, (0, source))
-    path = {}
-    path[0] = []
-    while len(heap) > 0:
+    heap = [(0,source)]
+    path = {source: [source]}
+    while heap:
         w, u = heappop(heap)
         for v in graph[u]:
             if w + graph[u][v] < dist[v]:
