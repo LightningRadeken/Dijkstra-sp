@@ -2,8 +2,10 @@ import os
 from graphs_LightningRadeken import sp
 
 def load_graph_from_file(filename):
+    # moves into graphs_LightningRadeken to retrieve the files
     base_path = os.path.join(os.path.dirname(__file__), "graphs_LightningRadeken")
     filepath = os.path.join(base_path, filename)
+    #opens the files and reads each line
 
     with open(filepath,"r") as f:
         lines = f.readlines()
@@ -17,18 +19,21 @@ def load_graph_from_file(filename):
     
     return graph
 
+#Prints out information from example 1
 graph1 = load_graph_from_file("example1.txt")
 dist1, path1 = sp.dijkstra(graph1,0)
 print("Example1:")
 print("Distances:", dist1)
 print("Paths:", path1)
 
+#Prints out information from example 2
 graph2 = load_graph_from_file("example2.txt")
 dist2, path2 = sp.dijkstra(graph2,0)
 print("Example2:")
 print("Distances:", dist2)
 print("Paths:", path2)
 
+#Prints out information from example 3
 graph3 = load_graph_from_file("example3.txt")
 dist3, path3 = sp.dijkstra(graph3,0)
 print("Example3:")
