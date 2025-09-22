@@ -1,7 +1,11 @@
+import os
 from graphs_LightningRadeken import sp
 
 def load_graph_from_file(filename):
-    with open(filename,"r") as f:
+    base_path = os.path.join(os.path.dirname(__file__), "graphs_LightningRadeken")
+    filepath = os.path.join(base_path, filename)
+
+    with open(filepath,"r") as f:
         lines = f.readlines()
     
     n = int(lines[0].strip())
